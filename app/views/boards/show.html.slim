@@ -1,0 +1,13 @@
+h1 Boards#show
+table
+  tbody
+    tr
+      th title
+      td = @board.title
+    tr
+      th body
+      td = @board.body
+
+= link_to '編集', edit_board_path(@board)
+br
+= link_to '一覧', boards_path

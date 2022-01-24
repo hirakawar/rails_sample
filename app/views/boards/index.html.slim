@@ -1,0 +1,21 @@
+h1 Boards#index
+
+table
+  thead
+    tr
+      th title
+      th body
+      th
+      th
+      th
+  tbody
+    - @boards.each do |board|  
+      tr
+        td = board.title
+        td = board.body
+        td = link_to '詳細', board
+        td = link_to '編集', edit_board_path(board)
+        td = link_to '削除', board, method: :delete, data: { confirm: '削除します。よろしいですか？'}    
+br
+
+= link_to '新規投票', new_board_path
