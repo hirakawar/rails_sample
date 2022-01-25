@@ -8,6 +8,22 @@ table
       th body
       td = @board.body
 
+h2 comments
+- @board.comments.each do |comment|
+  table
+    tbody
+      tr
+        th  comment
+        td = comment.body
+
+h2 Add comments
+= form_with model: [ @board, @board.comments.build], local: true do |form|
+  field
+    = form.label :body
+    = form.text_area :body
+  div
+    = form.submit
+
 = link_to '編集', edit_board_path(@board)
 br
 = link_to '一覧', boards_path
